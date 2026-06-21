@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабинет преподавателя - Обзор</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fas fa-school"></i>
+        </div>
+        <div class="logo-text">
+            <h1>Кабинет преподавателя</h1>
+            <p>Учебный портал</p>
+        </div>
+    </div>
+    
+    <div chelass="user-info">
+        <div class="user-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="user-details">
+            <h3 id="teacher-name"></h3>
+            <p id="teacher-subject"></p>
+        </div>
+    </div>
+
+    <a href="#" id="logout-btn" class="btn btn-danger">Выйти</a>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <ul class="nav-menu">
+            <li class="nav-item active">
+                <a href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Обзор</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="currTest.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Доступные тесты</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="results.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Результаты</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Профиль</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-tab active">
+            <div class="tab-header">
+                <h2>Обзор</h2>
+                <div class="current-date" id="current-date"></div>
+            </div>
+
+            <div class="welcome-card">
+                <h3>
+                    Добро пожаловать, 
+                    <span id="welcome-name"></span>!
+                </h3>
+                <p>
+                    Здесь вы можете проходить тесты по предмету 
+                    <strong id="dashboard-subject"></strong>,
+                    созданные администратором, и отслеживать свои результаты.
+                </p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="tests-count">0</h3>
+                        <p>Доступных тестов</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="completed-tests">0</h3>
+                        <p>Пройденных тестов</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="average-score">0%</h3>
+                        <p>Средний результат</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-tests">
+                <h3>Недавние результаты</h3>
+                <table class="recent-results-table">
+                    <thead>
+                        <tr>
+                            <th>Тест</th>
+                            <th>Дата</th>
+                            <th>Результат</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-tests-list"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="teacher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dateElement = document.getElementById("current-date");
+        if (dateElement) {
+            const now = new Date();
+            const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+            dateElement.textContent = now.toLocaleDateString("ru-RU", options);
+        }
+    });
+</script>
+</body>
+</html>

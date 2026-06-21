@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабинет преподавателя - Доступные тесты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fas fa-school"></i>
+        </div>
+        <div class="logo-text">
+            <h1>Кабинет преподавателя</h1>
+            <p>Учебный портал</p>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <div class="user-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="user-details">
+            <h3 id="teacher-name"></h3>
+            <p id="teacher-subject"></p>
+        </div>
+    </div>
+
+    <a href="#" id="logout-btn" class="btn btn-danger">Выйти</a>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Обзор</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a href="currTest.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Доступные тесты</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="results.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Результаты</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Профиль</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-tab active">
+            <div class="tab-header">
+                <h2>Тесты по предмету: <span id="tests-subject"></span></h2>
+            </div>
+
+            <div class="tests-container">
+                <div class="test-categories">
+                    <button class="category-tab active" data-category="available">Доступные тесты</button>
+                    <button class="category-tab" data-category="completed">Пройденные тесты</button>
+                    <button class="category-tab" data-category="all">Все тесты</button>
+                </div>
+
+                <div class="category-content active" id="category-available">
+                    <div class="tests-grid" id="tests-available-grid"></div>
+                </div>
+
+                <div class="category-content" id="category-completed">
+                    <div class="tests-grid" id="tests-completed-grid"></div>
+                </div>
+
+                <div class="category-content" id="category-all">
+                    <div class="tests-grid" id="tests-all-grid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal-overlay" id="test-modal">
+    <div class="modal test-modal">
+        <div class="modal-header">
+            <h3 id="test-modal-title">Прохождение теста</h3>
+            <div class="test-timer">
+                <i class="fas fa-clock"></i>
+                <span id="timer">00:00</span>
+            </div>
+            <button class="modal-close" id="close-test-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="test-info">
+                <div class="test-meta">
+                    <span><i class="fas fa-book"></i> <span id="test-subject-name"></span></span>
+                    <span><i class="fas fa-question-circle"></i> <span id="test-questions-count"></span> вопросов</span>
+                    <span><i class="fas fa-hourglass-half"></i> <span id="test-time-limit"></span></span>
+                </div>
+                <p id="test-description"></p>
+            </div>
+            <div class="test-progress">
+                <div class="question-counter" id="question-counter">1 / 10</div>
+            </div>
+            <div id="question-container" class="question-container"></div>
+            <div class="test-navigation">
+                <button type="button" class="btn" id="prev-question" disabled>← Назад</button>
+                <button type="button" class="btn btn-primary" id="next-question">Вперёд →</button>
+                <button type="button" class="btn btn-success" id="finish-test" style="display: none;">Завершить тест</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="teacher.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const teacherSubject = document.getElementById('teacher-subject')?.textContent;
+        if (teacherSubject) {
+            document.getElementById('tests-subject').textContent = teacherSubject;
+        }
+    });
+</script>
+</body>
+</html>

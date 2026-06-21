@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена - Ошибка 404</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #212529;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            max-width: 600px;
+            padding: 40px 20px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: #89a373;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #212529;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            background-color: #89a373;
+            color: white;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #728674;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Упс! Страница не найдена</h2>
+        
+        <p class="error-message">
+            Похоже, страница, которую вы ищете, была перемещена, удалена или никогда не существовала.
+            Вы можете вернуться на главную страницу.
+        </p>
+        
+        <a href="javascript:history.back()" class="btn">
+            <i class="fas fa-home"></i> Вернуться на главную
+        </a>
+    </div>
+</body>
+</html>
